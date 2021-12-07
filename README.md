@@ -1,6 +1,8 @@
 # NOTES
 + Conan is distributed as a Python package
++ Conan packages(`=recipes`) : <br>
 
+    - can fetch source code from remote sources such as Github, Gitlab, Sourceforge, FTP or *conan server* in local network
 
 # INSTRUCTIONS
 
