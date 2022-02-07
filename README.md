@@ -9,12 +9,14 @@
 +  pip3 install -v conan
 
 ## search a package
-+  conan search #lists packages in local cache or local repository
++  conan search &rarr; lists packages in local cache or local repository
 + conan search gtest -r=all
 
-## common commads
+## common commands
 + conan profile list
 + conan remote list
++ conan config &rarr; Manages configuration, installs config files
++ conan install &rarr; Install the _requirements_ specified in the conanfile(py or txt)
 
 # INSTALLATION
 ## Manual installation from command line
