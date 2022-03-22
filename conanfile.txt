@@ -1,5 +1,5 @@
 [requires]
-gtest/1.8.1
+gtest/cci.20210126
 libpcap/1.9.1
 
 [generators]

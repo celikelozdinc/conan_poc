@@ -7,10 +7,11 @@
 # INSTRUCTIONS
 
 +  pip3 install -v conan
++  pip3 install -v conan --upgrade
 
 ## search a package
 +  conan search &rarr; lists packages in local cache or local repository
-+ conan search gtest -r=all
++  conan search gtest -r=all
 
 ## common commands
 + conan profile list
@@ -31,6 +32,8 @@ from build directory. `<path>` should point to the location of the conanfile.txt
 
 ```
 cd build
+conan profile new default --detect  # Generates default profile detecting GCC and sets old ABI
+conan profile update settings.compiler.libcxx=libstdc++11 default  # Sets libcxx to C++11 ABI
 conan install ..
 cmake ..
 ```
@@ -39,3 +42,8 @@ cmake ..
 # REFERENCES
 + [Introduction](https://kubasejdak.com/introduction-to-conan-package-manager)
 + [bincrafters github](https://bincrafters.github.io/)
++ [mocking non-virtual and free functions by Sandor Dargo](https://www.sandordargo.com/blog/2022/03/09/mocking-non-virtual-and-free-functions)
+
+## RUNTIME ERROR while invoking unit tests: munmap_chunk(): invalid pointer 
++ [gtest via conan](https://stackoverflow.com/questions/60874183/how-to-use-gtest-via-conan)
+    + [Warning in the Getting Started Docs. ](https://docs.conan.io/en/latest/getting_started.html)

@@ -1,13 +1,6 @@
+#include "declare.h"
 #include <iostream>
-#include <functional>
 
-//free function
-int half(int x) {return x/2;}
-
-//function object class
-struct third_t{
-    int operator()(int x) {return x/3;}
-};
 
 int main() {
     std::function<int(int)> func1 = half;  // function
