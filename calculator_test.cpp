@@ -27,12 +27,12 @@ TEST_F(CalculatorTest, DISABLED_Test) {
 
 
 TEST_F(CalculatorTest, CarTest) {
-    Car car{};
-    CarWrapper<Car> wrapper_real{&car};
+    std::unique_ptr<Car> car = std::make_unique<Car>();
+    CarWrapper<Car> wrapper_real{std::move(car)};
     ASSERT_EQ(17, wrapper_real.get_trunk_size());
 
-    MockedCar mockCar{};
-    EXPECT_CALL(mockCar, get_trunk_size()).WillOnce(testing::Return(41));
-    CarWrapper<MockedCar> wrapper_fake(&mockCar);
+    std::unique_ptr<MockedCar> mockCar = std::make_unique<MockedCar>();
+    EXPECT_CALL(*mockCar.get(), get_trunk_size()).WillOnce(testing::Return(41));
+    CarWrapper<MockedCar> wrapper_fake{std::move(mockCar)};
     ASSERT_EQ(41, wrapper_fake.get_trunk_size());
 }

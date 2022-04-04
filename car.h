@@ -2,6 +2,7 @@
 #define CAR_H
 
 #include <iostream>
+#include <memory>
 #include <gmock/gmock.h>
 
 class Car {
@@ -38,7 +39,7 @@ public:
 template <typename ConcreteCar>
 class CarWrapper {
 public:
-    explicit CarWrapper(ConcreteCar* cc) : _concreteCar{cc} {
+    explicit CarWrapper(std::unique_ptr<ConcreteCar> cc) : _concreteCar{std::move(cc)} {
         std::cout << "CarWrapper::CarWrapper()\n";
     }
 
@@ -59,7 +60,7 @@ public:
 
 
 private:
-    ConcreteCar* _concreteCar;
+    std::unique_ptr<ConcreteCar> _concreteCar;
 };
 
 #endif
