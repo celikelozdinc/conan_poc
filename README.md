@@ -36,6 +36,11 @@ conan profile new default --detect  # Generates default profile detecting GCC an
 conan profile update settings.compiler.libcxx=libstdc++11 default  # Sets libcxx to C++11 ABI
 conan install ..
 cmake ..
+make clean
+make help
+make Calculator
+make CalculatorTest
+./bin/CalculatorTest
 ```
 
 
