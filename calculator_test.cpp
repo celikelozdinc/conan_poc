@@ -28,13 +28,11 @@ TEST_F(CalculatorTest, DISABLED_Test) {
 
 TEST_F(CalculatorTest, CarTest) {
     Car car{};
-    CarWrapper<Car> wrapper_real{car};
+    CarWrapper<Car> wrapper_real{&car};
     ASSERT_EQ(17, wrapper_real.get_trunk_size());
 
     MockedCar mockCar{};
     EXPECT_CALL(mockCar, get_trunk_size()).WillOnce(testing::Return(41));
-    //MockedCar mockCar{};
-    //CarWrapper<MockedCar> wrapper_fake{mockCar};
-    //EXPECT_CALL(mockCar, get_trunk_size()).WillOnce(testing::Return(41));
-    //ASSERT_EQ(25, wrapper_real.get_trunk_size());
+    CarWrapper<MockedCar> wrapper_fake(&mockCar);
+    ASSERT_EQ(41, wrapper_fake.get_trunk_size());
 }

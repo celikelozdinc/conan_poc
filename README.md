@@ -43,6 +43,7 @@ cmake ..
 + [Introduction](https://kubasejdak.com/introduction-to-conan-package-manager)
 + [bincrafters github](https://bincrafters.github.io/)
 + [mocking non-virtual and free functions by Sandor Dargo](https://www.sandordargo.com/blog/2022/03/09/mocking-non-virtual-and-free-functions)
++ [mocking non-virtual methods from gmock cook book](https://github.com/google/googletest/blob/main/docs/gmock_cook_book.md#mocking-non-virtual-methods-mockingnonvirtualmethods)
 
 ## RUNTIME ERROR while invoking unit tests: munmap_chunk(): invalid pointer 
 + [gtest via conan](https://stackoverflow.com/questions/60874183/how-to-use-gtest-via-conan)

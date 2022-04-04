@@ -38,28 +38,28 @@ public:
 template <typename ConcreteCar>
 class CarWrapper {
 public:
-    explicit CarWrapper(ConcreteCar cc) : _concreteCar{cc} {
+    explicit CarWrapper(ConcreteCar* cc) : _concreteCar{cc} {
         std::cout << "CarWrapper::CarWrapper()\n";
     }
 
     void start_engine() {
         std::cout << "CarWrapper::start_engine()\n";
-        _concreteCar.start_engine();
+        _concreteCar->start_engine();
     }
 
     int get_trunk_size() const {
         std::cout << "CarWrapper::get_trunk_size()\n";
-        return _concreteCar.get_trunk_size();
+        return _concreteCar->get_trunk_size();
     }
 
     void add_fuel(double quantity) {
         std::cout << "CarWrapper::add_fuel() => " << quantity << "\n";
-        _concreteCar.add_fuel(quantity);
+        _concreteCar->add_fuel(quantity);
     }
 
 
 private:
-    ConcreteCar _concreteCar;
+    ConcreteCar* _concreteCar;
 };
 
 #endif
